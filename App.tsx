@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, Linkedin, Download, Cpu, ChevronDown, Globe } from 'lucide-react';
+import { Mail, Phone, Linkedin, Download, Cpu, ChevronDown, Globe, MapPin } from 'lucide-react';
 import WaveBackground from './components/WaveBackground';
 import Typewriter from './components/Typewriter';
 import ProjectCard from './components/ProjectCard';
 import { CONTACT, EDUCATION, PROJECTS, SKILLS } from './constants';
+// Ensure using relative path './' instead of alias '@/'
+import profilePic from './profile.png';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -80,11 +82,7 @@ const App: React.FC = () => {
                 {/* Image Mask */}
                 <div className="w-full h-full rounded-full overflow-hidden border-4 border-slate-800 bg-slate-800 shadow-2xl relative z-10">
                   <img 
-                    src="./profile.png"
-                    onError={(e) => {
-                      // Fallback if local image is not found
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?fit=crop&w=800&h=800";
-                    }}
+                    src={profilePic}
                     alt="Yueyang Wang" 
                     className="w-full h-full object-cover opacity-100 hover:scale-105 transition-transform duration-700"
                   />
